@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contoh dasar tag HTML beserta hasil tampilannya.">
+  <title>Contoh Perintah HTML</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202b2a;
+      --muted: #64716e;
+      --paper: #f5f6f1;
+      --surface: #ffffff;
+      --line: #dce2dc;
+      --green: #176b55;
+      --orange: #e8794b;
+      --code: #172522;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.65 "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    a { color: var(--green); }
+
+    .topbar {
+      padding: 14px 6vw;
+      color: #f8fbf6;
+      background: var(--code);
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      padding: 62px 6vw 54px;
+      color: white;
+      background: linear-gradient(120deg, #176b55 0%, #245a4b 60%, #334d42 100%);
+    }
+
+    .hero-inner, main, footer { max-width: 1050px; margin: 0 auto; }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #c6e7d6;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: 3.2rem;
+      line-height: 1.08;
+    }
+
+    .hero p:last-child { max-width: 640px; margin: 18px 0 0; color: #e2eee7; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      padding: 16px 6vw;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a { font-size: 0.92rem; font-weight: 700; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    main { padding: 32px 20px 60px; }
+
+    .intro { margin: 0 0 24px; color: var(--muted); }
+
+    .example {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      margin: 16px 0;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    .example-heading { grid-column: 1 / -1; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+    .example-heading h2 { margin: 0; font-size: 1.15rem; }
+    .example-heading p { margin: 3px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .sample, .rendered { min-width: 0; padding: 20px; }
+    .sample { background: #f0f3ef; }
+    .rendered { border-left: 1px solid var(--line); }
+    .label { display: block; margin-bottom: 10px; color: var(--muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; }
+
+    pre {
+      margin: 0;
+      padding: 14px;
+      overflow-x: auto;
+      color: #e4eee8;
+      background: var(--code);
+      border-radius: 4px;
+      font: 0.86rem/1.6 Consolas, "Courier New", monospace;
+      white-space: pre;
+    }
+
+    code { font-family: Consolas, "Courier New", monospace; }
+    .rendered h1, .rendered h2, .rendered h3 { margin-top: 0; }
+    .rendered h1 { font-size: 1.8rem; }
+    .rendered h2 { font-size: 1.45rem; }
+    .rendered h3 { font-size: 1.15rem; }
+    .rendered p:first-child { margin-top: 0; }
+    .rendered ul, .rendered ol { padding-left: 22px; }
+    .rendered img { display: block; width: 100%; max-width: 320px; height: auto; border-radius: 4px; }
+    .rendered table { width: 100%; border-collapse: collapse; text-align: left; }
+    .rendered th, .rendered td { padding: 8px; border: 1px solid var(--line); }
+    .rendered th { background: #f0f3ef; }
+    .rendered form { display: grid; gap: 10px; }
+    .rendered input, .rendered select, .rendered button { width: 100%; padding: 9px 10px; font: inherit; }
+    .rendered button { color: white; background: var(--green); border: 0; border-radius: 4px; cursor: pointer; }
+    .rendered blockquote { margin: 0; padding-left: 14px; border-left: 3px solid var(--orange); color: var(--muted); }
+    details { padding: 12px; background: #f0f3ef; border-radius: 4px; }
+    summary { cursor: pointer; font-weight: 700; }
+    footer { padding: 0 20px 32px; color: var(--muted); font-size: 0.9rem; }
+
+    @media (max-width: 680px) {
+      .hero { padding: 44px 20px 38px; }
+      h1 { font-size: 2.2rem; }
+      nav { padding: 14px 20px; }
+      main { padding: 24px 14px 42px; }
+      .example { grid-template-columns: 1fr; }
+      .example-heading { grid-column: auto; }
+      .rendered { border-top: 1px solid var(--line); border-left: 0; }
+      .sample, .rendered { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">CATATAN BELAJAR / HTML DASAR</div>
+    <div class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Panduan singkat</p>
+        <h1>Contoh perintah HTML</h1>
+        <p>HTML menyusun struktur halaman web menggunakan elemen yang ditulis dengan tag. Lihat contoh kode di sebelah kiri dan hasilnya di sebelah kanan.</p>
+      </div>
+    </div>
+    <nav aria-label="Navigasi contoh">
+      <a href="#teks">Teks</a>
+      <a href="#format">Format</a>
+      <a href="#daftar">Daftar</a>
+      <a href="#tautan-gambar">Tautan &amp; gambar</a>
+      <a href="#tabel">Tabel</a>
+      <a href="#formulir">Formulir</a>
+      <a href="#semantik">Semantik</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="intro">Tag HTML biasanya memiliki tag pembuka dan penutup, misalnya <code>&lt;p&gt;</code> dan <code>&lt;/p&gt;</code>. Beberapa elemen seperti <code>&lt;img&gt;</code> tidak memiliki tag penutup.</p>
+
+    <section class="example" id="teks">
+      <div class="example-heading"><h2>1. Judul dan paragraf</h2><p>Gunakan heading untuk menyusun tingkat judul dan paragraf untuk teks biasa.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;h1&gt;Judul utama&lt;/h1&gt;
+&lt;h2&gt;Judul bagian&lt;/h2&gt;
+&lt;h3&gt;Judul kecil&lt;/h3&gt;
+&lt;p&gt;Ini adalah sebuah paragraf.&lt;/p&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><h1>Judul utama</h1><h2>Judul bagian</h2><h3>Judul kecil</h3><p>Ini adalah sebuah paragraf.</p></div>
+    </section>
+
+    <section class="example" id="format">
+      <div class="example-heading"><h2>2. Format teks dan baris</h2><p>Tandai penekanan, teks penting, baris baru, atau pemisah topik.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;p&gt;Teks &lt;strong&gt;penting&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Teks &lt;em&gt;ditekankan&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Baris pertama&lt;br&gt;baris kedua&lt;/p&gt;
+&lt;hr&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><p>Teks <strong>penting</strong>.</p><p>Teks <em>ditekankan</em>.</p><p>Baris pertama<br>baris kedua</p><hr></div>
+    </section>
+
+    <section class="example" id="daftar">
+      <div class="example-heading"><h2>3. Daftar</h2><p><code>&lt;ul&gt;</code> membuat daftar berpoin, sedangkan <code>&lt;ol&gt;</code> membuat daftar bernomor.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;ul&gt;
+  &lt;li&gt;Apel&lt;/li&gt;
+  &lt;li&gt;Jeruk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Buka editor&lt;/li&gt;
+  &lt;li&gt;Tulis HTML&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><strong>Buah</strong><ul><li>Apel</li><li>Jeruk</li></ul><strong>Langkah</strong><ol><li>Buka editor</li><li>Tulis HTML</li></ol></div>
+    </section>
+
+    <section class="example" id="tautan-gambar">
+      <div class="example-heading"><h2>4. Tautan dan gambar</h2><p>Gunakan atribut <code>href</code> untuk alamat tautan dan <code>src</code> untuk sumber gambar.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;a href="https://example.com"&gt;
+  Kunjungi Example
+&lt;/a&gt;
+&lt;img src="gambar.jpg"
+  alt="Pemandangan gunung"&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><p><a href="https://example.com">Kunjungi Example</a></p><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=640&amp;q=80" alt="Pemandangan pegunungan di bawah langit cerah" loading="lazy"></div>
+    </section>
+
+    <section class="example" id="tabel">
+      <div class="example-heading"><h2>5. Tabel</h2><p>Susun data dengan baris, judul kolom, dan sel.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nama&lt;/th&gt;
+    &lt;th&gt;Nilai&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ayu&lt;/td&gt;
+    &lt;td&gt;90&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><table><thead><tr><th>Nama</th><th>Nilai</th></tr></thead><tbody><tr><td>Ayu</td><td>90</td></tr><tr><td>Bima</td><td>85</td></tr></tbody></table></div>
+    </section>
+
+    <section class="example" id="formulir">
+      <div class="example-heading"><h2>6. Formulir</h2><p>Label membantu menjelaskan input yang perlu diisi pengguna.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;form&gt;
+  &lt;label for="nama"&gt;Nama&lt;/label&gt;
+  &lt;input id="nama" name="nama"
+    type="text" placeholder="Nama kamu"&gt;
+  &lt;button type="button"&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><form><label for="nama">Nama</label><input id="nama" name="nama" type="text" placeholder="Nama kamu"><button type="button">Kirim</button></form></div>
+    </section>
+
+    <section class="example" id="semantik">
+      <div class="example-heading"><h2>7. Elemen semantik dan detail</h2><p>Elemen semantik menjelaskan peran isi halaman; <code>&lt;details&gt;</code> dapat dibuka dan ditutup.</p></div>
+      <div class="sample"><span class="label">Kode HTML</span><pre><code>&lt;blockquote&gt;
+  Belajar sedikit demi sedikit.
+&lt;/blockquote&gt;
+&lt;details&gt;
+  &lt;summary&gt;Lihat catatan&lt;/summary&gt;
+  Isi tambahan ditampilkan di sini.
+&lt;/details&gt;</code></pre></div>
+      <div class="rendered"><span class="label">Hasil</span><blockquote>Belajar sedikit demi sedikit.</blockquote><details><summary>Lihat catatan</summary><p>Gunakan elemen seperti <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, dan <code>&lt;footer&gt;</code> untuk memberi struktur halaman yang jelas.</p></details></div>
+    </section>
+  </main>
+
+  <footer>Contoh HTML dasar · Simpan file dengan ekstensi <code>.html</code>, lalu buka di browser.</footer>
+</body>
+</html>
