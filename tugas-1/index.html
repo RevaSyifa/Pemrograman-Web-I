@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reva Syifa Tamara</title>
+  <style>
+    :root {
+      --malam: #1e1b4b;
+      --magenta: #be185d;
+      --jingga: #fb923c;
+      --kuning: #fde68a;
+      --putih: #fff7fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      color: var(--putih);
+      /* Elemen desain: gradasi warna senja + warna teks */
+      background: linear-gradient(160deg, var(--malam) 0%, var(--magenta) 55%, var(--jingga) 100%);
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    main {
+      max-width: 660px;
+      width: 100%;
+      padding: 40px 36px;
+      background: rgba(30, 27, 75, 0.55);
+      border: 1px solid rgba(253, 230, 138, 0.35);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+    h1 {
+      font-size: clamp(1.9rem, 6vw, 2.8rem);
+      margin: 0 0 24px;
+      color: var(--kuning);
+      line-height: 1.15;
+    }
+    p { margin: 0 0 18px; font-size: 1.1rem; }
+    button {
+      margin-top: 12px;
+      padding: 12px 26px;
+      font: inherit;
+      font-weight: bold;
+      color: var(--malam);
+      background: var(--kuning);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    button:hover { background: var(--jingga); transform: translateY(-2px); }
+    button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    #hasil {
+      margin-top: 20px;
+      font-style: italic;
+      color: var(--kuning);
+      min-height: 1.7em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Bandung dari Balik Jendela Kuliah</h1>
+
+    <p>Halo, saya Reva Syifa Tamara, mahasiswa Universitas Teknologi Bandung. Halaman ini saya buat sebagai tugas pertama untuk belajar dasar HTML, CSS, dan JavaScript.</p>
+
+    <p>Bandung dikenal dengan udaranya yang sejuk, hujan sore yang datang tiba-tiba, dan kota yang tidak pernah kehabisan tempat nongkrong. Suasana itu membuat belajar terasa lebih menyenangkan.</p>
+
+    <p>Lewat tugas ini saya belajar bahwa sebuah halaman web sederhana pun terdiri dari tiga lapisan: struktur dengan HTML, tampilan dengan CSS, dan interaksi dengan JavaScript. Coba tekan tombol di bawah untuk melihat interaksinya.</p>
+
+    <button id="tombol" type="button">Lihat waktu sekarang</button>
+    <div id="hasil" aria-live="polite"></div>
+  </main>
+
+  <script>
+    document.getElementById("tombol").addEventListener("click", function () {
+      var teks = new Date().toLocaleString("id-ID", {
+        dateStyle: "full",
+        timeStyle: "medium"
+      });
+      document.getElementById("hasil").textContent = "Sekarang: " + teks;
+    });
+  </script>
+</body>
+</html>
